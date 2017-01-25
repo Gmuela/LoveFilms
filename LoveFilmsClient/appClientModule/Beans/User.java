@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @SequenceGenerator(name = "idUser", sequenceName = "User_Sequence")
@@ -15,7 +16,8 @@ public class User implements Serializable {
     private String name;
     private String password;
     private LocalDate birthday;
-    private ArrayList<Film> favouriteFilms;
+    @OneToMany
+    private List<Film> favouriteFilms;
 
     public User(String name, String password, LocalDate birthday) {
         this.name = name;
@@ -61,7 +63,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Film> getFavouriteFilms() {
-        return favouriteFilms;
+        return (ArrayList<Film>) favouriteFilms;
     }
 
     public void setFavouriteFilms(ArrayList<Film> favouriteFilms) {

@@ -3,6 +3,7 @@ package Models.DAO;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import Beans.Film;
 import Beans.User;
@@ -27,7 +28,10 @@ public class UserDAO implements UserDAOLocal, UserDAORemote {
 
     @Override
     public User selectByName(String name) {
-        return manager.find(User.class, name);
+        String toQuery = "SELECT user from User user where user.name = :name";
+        Query query = manager.createQuery(toQuery);
+        query.setParameter("name", name);
+        return (User) query.getSingleResult();
     }
 
     @Override

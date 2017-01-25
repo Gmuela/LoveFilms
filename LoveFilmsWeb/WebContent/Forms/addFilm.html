@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>LoveFilms</title>
+    <link rel="stylesheet" href="../Resources/CSS/style.css" type="text/css">
+</head>
+<body>
+<div class="logo">
+    <h1 class="tittle"><span class="nombreUno">Añadir </span><span class="nombreDos">Película</span></h1>
+</div>
+<fieldset>
+    <form action="/LoveFilmsWeb/manageFilm" method="post">
+
+        <label for="title">Título de la película</label>
+        <input type="text" name="title" id="title">
+
+        <label for="director">Director</label>
+        <input type="text" name="director" id="director">
+
+        <label for="actors">Actores(separados por comas)</label>
+        <input type="text" name="actors" id="actors">
+
+        <label for="imageRoute">Carátula(url)</label>
+        <input type="text" name="imageRoute" id="imageRoute">
+
+        <label for="releaseDate">Fecha de estreno</label>
+        <input type="date" name="releaseDate" id="releaseDate">
+
+        <label for="averageNote">Nota media</label>
+        <input type="text" name="averageNote" id="averageNote">
+
+        <label for="summary">Resumen</label>
+        <textarea name="summary" id="summary"></textarea>
+
+        <button type="submit" class="button">Crear película</button>
+    </form>
+    <a class="linkEspecial" href="../Main/mainPage.jsp"><button class="button-cancel">CANCELAR</button></a>
+</fieldset>
+</body>
+</html>

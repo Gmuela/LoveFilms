@@ -3,6 +3,7 @@
 	<persistence-unit name="PersistenceUnit" transaction-type="JTA">
 		<jta-data-source>java:jboss/datasources/mysql</jta-data-source>
 		<class>Beans.User</class>
+		<class>Beans.Film</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
 		</properties>

@@ -4,7 +4,9 @@ import Beans.User;
 import Models.DAO.UserDAOLocal;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
+@Stateless
 public class SessionBusiness implements SessionBusinessLocal, SessionBusinessRemote {
 
     @EJB

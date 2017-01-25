@@ -13,14 +13,16 @@ public class Film implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idFilm")
     private Integer idFilm;
     private String title;
+    private String imageRoute;
     private String director;
     private ArrayList<String> actors;
     private LocalDate releaseDate;
     private Double averageNote;
     private String summary;
 
-    public Film(String title, String director, ArrayList<String> actors, LocalDate releaseDate, Double averageNote, String summary) {
+    public Film(String title, String director, ArrayList<String> actors, String imageRoute, LocalDate releaseDate, Double averageNote, String summary) {
         this.title = title;
+        this.imageRoute = imageRoute;
         this.director = director;
         this.actors = actors;
         this.releaseDate = releaseDate;
@@ -86,5 +88,13 @@ public class Film implements Serializable{
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getImageRoute() {
+        return imageRoute;
+    }
+
+    public void setImageRoute(String imageRoute) {
+        this.imageRoute = imageRoute;
     }
 }

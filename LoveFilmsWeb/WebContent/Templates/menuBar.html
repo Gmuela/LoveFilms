@@ -1,19 +1,18 @@
-<!doctype html>
-<html lang="es">
-<body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../Resources/CSS/navbar.css" type="text/css">
+</head>
 <nav>
     <ul>
         <li><a href="../Main/mainPage.jsp">Inicio</a></li>
         <li><a href="../Main/userProfile.jsp">Perfil de Usuario</a></li>
-        <li><a href="../Forms/addFilm.html">Añadir Película</a></li>
+        <li><a href="../Forms/addFilm.html">Nueva Pelicula</a></li>
         <li><a href="../Main/userProfile.jsp">Ver Favoritos</a></li>
         <li>
             <form action="/search" method="post">
-                <input type="text" name="buscarPelicula" id="buscarPelicula">
+                <input type="text" name="buscarPelicula" id="buscarPelicula" placeholder="Buscar pelicula...">
             </form>
         </li>
     </ul>
 </nav>
-</body>
-</html>
-<script src="../Resources/JS/functions.js" />
+<script src="../Resources/JS/functions.js"></script>

@@ -22,13 +22,12 @@ public class ServletSession extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("user");
         String password = req.getParameter("password");
-
         User user = sessionBusiness.login(userName, password);
 
         if(user != null){
             HttpSession session = req.getSession(true);
             session.setAttribute("user",user);
-            resp.sendRedirect("/LoveFilmsWeb/Main/mainPage.html");
+            resp.sendRedirect("/LoveFilmsWeb/Main/mainPage.jsp");
         } else{
             resp.sendRedirect("/LoveFilmsWeb/errorPage.html");
         }

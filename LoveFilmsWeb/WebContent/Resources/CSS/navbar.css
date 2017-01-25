@@ -1,0 +1,38 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 99%;
+    overflow: hidden;
+    background-color: #4B1C1C;
+}
+
+li {
+    float: left;
+    width: 20%;
+}
+
+li a, li form {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+li a:hover {
+    background-color: #FF4F13;
+}
+
+li form input{
+    height: 20px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #FF4F13;
+}

@@ -88,6 +88,8 @@ fieldset {
     color: white;
 }
 
+/*BUTTONS*/
+
 .button {
     -moz-box-shadow:inset 0px 1px 3px 0px #4b1c1c;
     -webkit-box-shadow:inset 0px 1px 3px 0px #4b1c1c;
