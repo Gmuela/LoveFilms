@@ -43,5 +43,20 @@ public class FilmDAO implements FilmDAOLocal,FilmDAORemote {
         return (ArrayList<Film>) query.getResultList();
     }
 
+    @Override
+    public ArrayList<Film> selectFiveBestFilms(){
+        String toQuery = "SELECT films from Film films order by films.averageNote desc";
+        Query query = manager.createQuery(toQuery);
+        query.setMaxResults(5);
+        return (ArrayList<Film>) query.getResultList();
+    }
+
+    @Override
+    public ArrayList<Film> selectFiveLastFilms(){
+        String toQuery = "SELECT films from Film films order by films.idFilm desc";
+        Query query = manager.createQuery(toQuery);
+        query.setMaxResults(5);
+        return (ArrayList<Film>) query.getResultList();
+    }
 
 }

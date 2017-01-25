@@ -12,4 +12,8 @@ public interface FilmBusinessLocal {
     Film getFilmById(Integer id);
     boolean removeFilm(Film film);
     ArrayList<Film> searchFilmsWithName(String name);
+
+    ArrayList<Film> getFiveLastFilms();
+
+    ArrayList<Film> getFiveBestFilms();
 }

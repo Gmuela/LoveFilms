@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -41,6 +42,13 @@ public class ServletManageFilm extends HttpServlet {
         boolean created = filmBusiness.createNewFilm(film);
 
         if(created){
+            ArrayList<Film> lastFilms = filmBusiness.getFiveLastFilms();
+            ArrayList<Film> bestFilms = filmBusiness.getFiveBestFilms();
+            HttpSession session = req.getSession(true);
+            session.removeAttribute("bestFilms");
+            session.removeAttribute("lastFilms");
+            session.setAttribute("bestFilms", bestFilms);
+            session.setAttribute("lastFilms", lastFilms);
             resp.sendRedirect("/LoveFilmsWeb/Main/mainPage.jsp");
         } else{
             resp.sendRedirect("/LoveFilmsWeb/errorPage.html");

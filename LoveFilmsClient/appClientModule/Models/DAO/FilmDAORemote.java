@@ -12,4 +12,7 @@ public interface FilmDAORemote {
     Film select(Integer id);
     void delete(Film film);
     ArrayList<Film> searchFilmsLike(String name);
+    ArrayList<Film> selectFiveBestFilms();
+
+    ArrayList<Film> selectFiveLastFilms();
 }
