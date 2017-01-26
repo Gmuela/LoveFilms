@@ -23,7 +23,7 @@
             </div><%
         }
     }else{
-        %><p>Aún no se añadieron películas</p><%
+        %><p>No se han encontrado peliculas</p><%
     }%>
 </div>
 <div class="mainPageInfo bestFilms">
@@ -38,7 +38,7 @@
         </div><%
         }
     }else{
-        %><p>Aún no se añadieron películas</p><%
+        %><p>No se han encontrado peliculas</p><%
     }%>
 </div>
 </body>

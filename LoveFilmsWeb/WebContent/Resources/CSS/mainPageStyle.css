@@ -15,6 +15,10 @@
     float: right;
 }
 
+.searchFilms {
+    margin-left: 25%;
+}
+
 .title {
     margin-top: 5px;
     margin-bottom: 10px;
