@@ -10,12 +10,6 @@
 </head>
 <body>
 <%@include file="../Templates/menuBar.html"%>
-<div class="userInfo">
-    <p>Nombre de usuario: <%=me.getName()%></p>
-    <p>Fecha de nacimiento: <%=me.getBirthday()%></p>
-    <p>Peliculas favoritas: <%=me.getFavouriteFilms().size()%></p>
-    <p class="logoutLink" ><a href="/LoveFilmsWeb/session">Logout</a></p>
-</div>
 <div class="mainPageInfo searchFilms">
     <span class="title">Peliculas favoritas</span>
     <%if(me.getFavouriteFilms().size() != 0){

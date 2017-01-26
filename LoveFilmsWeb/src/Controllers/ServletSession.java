@@ -46,6 +46,8 @@ public class ServletSession extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO
+        HttpSession session = req.getSession(true);
+        session.invalidate();
+        resp.sendRedirect("/LoveFilmsWeb/");
     }
 }

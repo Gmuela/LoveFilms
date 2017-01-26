@@ -69,12 +69,32 @@ div.mainPageInfo:hover .title{
 }
 
 .userInfo {
+    width: 25%;
     display: block;
     text-align: left;
-    margin: 30px;
+    margin-top: 90px;
+    margin-left: 25%;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 8px #4B1C1C;
-    clear: left;
+    clear: both;
     overflow: auto;
     transition: all 0.8s;
+    font-size: 1.4em;
+}
+
+.logoutLink {
+    color: #4b1c1c;
+    font-weight: bolder;
+    margin-top: 7px;
+}
+
+.logoutLink > a {
+    text-decoration: none;
+    color: #4b1c1c;;
+}
+
+.logoutLink > a:hover {
+    text-decoration: none;
+    color: #FF4F13;
 }
