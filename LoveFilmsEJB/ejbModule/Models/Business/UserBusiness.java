@@ -6,7 +6,7 @@ import Models.DAO.UserDAOLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 public class UserBusiness implements UserBusinessLocal, UserBusinessRemote {
@@ -26,7 +26,7 @@ public class UserBusiness implements UserBusinessLocal, UserBusinessRemote {
     }
 
     @Override
-    public ArrayList<Film> getFavouriteFilmsOf(User user) {
+    public List<Film> getFavouriteFilmsOf(User user) {
         return userDAO.selectFavouriteFilms(user);
     }
 }

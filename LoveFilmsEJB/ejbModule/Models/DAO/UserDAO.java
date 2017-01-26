@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import Beans.Film;
 import Beans.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 public class UserDAO implements UserDAOLocal, UserDAORemote {
@@ -35,7 +35,7 @@ public class UserDAO implements UserDAOLocal, UserDAORemote {
     }
 
     @Override
-    public ArrayList<Film> selectFavouriteFilms(User user) {
+    public List<Film> selectFavouriteFilms(User user) {
         User userSelected = manager.find(User.class, user);
         return userSelected.getFavouriteFilms();
     }

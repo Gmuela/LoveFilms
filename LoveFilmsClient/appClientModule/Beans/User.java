@@ -3,7 +3,6 @@ package Beans;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,14 +15,14 @@ public class User implements Serializable {
     private String name;
     private String password;
     private LocalDate birthday;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Film> favouriteFilms;
 
     public User(String name, String password, LocalDate birthday) {
         this.name = name;
         this.password = password;
         this.birthday = birthday;
-        this.favouriteFilms = new ArrayList<Film>();
+        this.favouriteFilms = null;
     }
 
     public User() {
@@ -62,11 +61,11 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public ArrayList<Film> getFavouriteFilms() {
-        return (ArrayList<Film>) favouriteFilms;
+    public List<Film> getFavouriteFilms() {
+        return favouriteFilms;
     }
 
-    public void setFavouriteFilms(ArrayList<Film> favouriteFilms) {
+    public void setFavouriteFilms(List<Film> favouriteFilms) {
         this.favouriteFilms = favouriteFilms;
     }
 }

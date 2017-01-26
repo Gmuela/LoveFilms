@@ -4,11 +4,11 @@ import Beans.Film;
 import Beans.User;
 
 import javax.ejb.Remote;
-import java.util.ArrayList;
+import java.util.List;
 
 @Remote
 public interface UserBusinessRemote {
     boolean createNewUser(User user);
     User getUserWithId(Integer id);
-    ArrayList<Film> getFavouriteFilmsOf(User user);
+    List<Film> getFavouriteFilmsOf(User user);
 }
