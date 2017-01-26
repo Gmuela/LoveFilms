@@ -39,4 +39,10 @@ public class UserDAO implements UserDAOLocal, UserDAORemote {
         User userSelected = manager.find(User.class, user);
         return userSelected.getFavouriteFilms();
     }
+
+    @Override
+    public boolean insertFavouriteFilmTo(User user) {
+        manager.merge(user);
+        return true;
+    }
 }

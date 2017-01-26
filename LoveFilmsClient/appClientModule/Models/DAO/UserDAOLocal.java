@@ -12,4 +12,6 @@ public interface UserDAOLocal {
     User select(Integer id);
     User selectByName(String name);
     List<Film> selectFavouriteFilms(User user);
+
+    boolean insertFavouriteFilmTo(User user);
 }

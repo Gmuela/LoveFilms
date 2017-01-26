@@ -11,4 +11,6 @@ public interface UserBusinessLocal {
     boolean createNewUser(User user);
     User getUserWithId(Integer id);
     List<Film> getFavouriteFilmsOf(User user);
+
+    boolean addFavouriteFilm(User user);
 }

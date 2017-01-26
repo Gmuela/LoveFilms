@@ -21,7 +21,7 @@ public class ServletDeleteFilm extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Do nothing
+        doGet(req,resp);
     }
 
     @Override

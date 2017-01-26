@@ -98,3 +98,8 @@ div.mainPageInfo:hover .title{
     text-decoration: none;
     color: #FF4F13;
 }
+
+.linkEspecial{
+    text-decoration: none;
+    color: white;
+}

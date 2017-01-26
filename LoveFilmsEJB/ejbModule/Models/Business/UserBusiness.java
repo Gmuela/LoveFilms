@@ -29,4 +29,9 @@ public class UserBusiness implements UserBusinessLocal, UserBusinessRemote {
     public List<Film> getFavouriteFilmsOf(User user) {
         return userDAO.selectFavouriteFilms(user);
     }
+
+    @Override
+    public boolean addFavouriteFilm(User user) {
+        return userDAO.insertFavouriteFilmTo(user);
+    }
 }
