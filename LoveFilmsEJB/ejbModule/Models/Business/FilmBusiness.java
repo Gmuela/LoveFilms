@@ -50,4 +50,9 @@ public class FilmBusiness implements FilmBusinessLocal, FilmBusinessRemote {
     public ArrayList<Film> getFiveBestFilms() {
         return filmDAO.selectFiveBestFilms();
     }
+
+    @Override
+    public ArrayList<Film> getAllFilms() {
+        return filmDAO.selectAllFilms();
+    }
 }

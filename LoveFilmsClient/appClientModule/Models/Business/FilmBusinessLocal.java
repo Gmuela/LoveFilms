@@ -16,4 +16,6 @@ public interface FilmBusinessLocal {
     ArrayList<Film> getFiveLastFilms();
 
     ArrayList<Film> getFiveBestFilms();
+
+    ArrayList<Film> getAllFilms();
 }

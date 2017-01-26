@@ -15,14 +15,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@WebServlet(name = "manageFilm", urlPatterns = "/manageFilm")
-public class ServletManageFilm extends HttpServlet {
+@WebServlet(name = "updateFilm", urlPatterns = "/updateFilm")
+public class ServletUpdateFilm extends HttpServlet {
 
     @EJB
     private FilmBusinessRemote filmBusiness;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        HttpSession session = req.getSession(false);
 
         String title = req.getParameter("title");
         String director = req.getParameter("director");
@@ -37,19 +39,28 @@ public class ServletManageFilm extends HttpServlet {
         LocalDate releaseDate = LocalDate.parse(releaseDateParameter);
         Double averageNote = Double.parseDouble(averageNoteParameter);
 
-        Film film = new Film(title, director, actors, imageRoute, releaseDate, averageNote,summary);
+        Film filmToUpdate = (Film) session.getAttribute("filmDetails");
 
-        boolean created = filmBusiness.createNewFilm(film);
+        filmToUpdate.setTitle(title);
+        filmToUpdate.setDirector(director);
+        filmToUpdate.setActors(actors);
+        filmToUpdate.setImageRoute(imageRoute);
+        filmToUpdate.setSummary(summary);
+        filmToUpdate.setReleaseDate(releaseDate);
+        filmToUpdate.setAverageNote(averageNote);
 
-        if(created){
+        boolean updated = filmBusiness.updateFilm(filmToUpdate);
+
+        if(updated){
             ArrayList<Film> lastFilms = filmBusiness.getFiveLastFilms();
             ArrayList<Film> bestFilms = filmBusiness.getFiveBestFilms();
-            HttpSession session = req.getSession(true);
             session.removeAttribute("bestFilms");
             session.removeAttribute("lastFilms");
+            session.removeAttribute("filmDetails");
             session.setAttribute("bestFilms", bestFilms);
             session.setAttribute("lastFilms", lastFilms);
-            resp.sendRedirect("/LoveFilmsWeb/Main/mainPage.jsp");
+            session.setAttribute("filmDetails", filmToUpdate);
+            resp.sendRedirect("/LoveFilmsWeb/Main/filmDetails.jsp");
         } else{
             resp.sendRedirect("/LoveFilmsWeb/errorPage.html");
         }
@@ -58,10 +69,6 @@ public class ServletManageFilm extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer idFilm =  Integer.parseInt(req.getParameter("idFilm"));
-        HttpSession session = req.getSession(true);
-        Film filmById = filmBusiness.getFilmById(idFilm);
-        session.setAttribute("filmDetails", filmById);
-        resp.sendRedirect("/LoveFilmsWeb/Main/filmDetails.jsp");
+        //doNothing
     }
 }

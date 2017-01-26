@@ -20,9 +20,46 @@
     margin-bottom: 10px;
     color: #4B1C1C;
     transition: all 1s;
-    font-size: 1.4em;
+    font-size: 2.5em;
 }
 
 div.mainPageInfo:hover .title{
     color: #FF4F13;
+}
+
+.film a {
+    text-decoration: none;
+    color: #FF4F13;
+    transition: all 0.5s;
+}
+
+.film a:hover {
+    text-decoration: underline;
+    color: #4B1C1C;
+}
+
+.film p {
+    margin-left: 34%;
+    font-size: 1.8em;
+}
+
+.film {
+    display: block;
+    text-align: left;
+    margin: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px #4B1C1C;
+    clear: left;
+    overflow: auto;
+    transition: all 0.8s;
+}
+
+.film:hover{
+    transform: scale(1.05);
+}
+
+.film img {
+    width: 22%;
+    float: left;
+    margin: 5px;
 }

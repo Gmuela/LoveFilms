@@ -16,4 +16,6 @@ public interface FilmBusinessRemote {
     ArrayList<Film> getFiveLastFilms();
 
     ArrayList<Film> getFiveBestFilms();
+
+    ArrayList<Film> getAllFilms();
 }

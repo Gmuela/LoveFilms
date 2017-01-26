@@ -18,6 +18,7 @@ public class Film implements Serializable{
     private ArrayList<String> actors;
     private LocalDate releaseDate;
     private Double averageNote;
+    @Lob
     private String summary;
 
     public Film(String title, String director, ArrayList<String> actors, String imageRoute, LocalDate releaseDate, Double averageNote, String summary) {

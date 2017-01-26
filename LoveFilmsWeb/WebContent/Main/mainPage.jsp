@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
     <title>LoveFilms</title>
     <link rel="stylesheet" href="../Resources/CSS/mainPageStyle.css" type="text/css">
     <% ArrayList<Film> bestFilms = (ArrayList<Film>) session.getAttribute("bestFilms"); %>
@@ -15,7 +15,12 @@
     <span class="title">Nuevas Peliculas</span>
     <%if(lastFilms.size() != 0){
         for (Film film : lastFilms) {%>
-            <p><%=film.getTitle()%></p><%
+            <div class="film">
+                <img src="<%=film.getImageRoute()%>"/>
+                <p><a href="/LoveFilmsWeb/manageFilm?idFilm=<%=film.getIdFilm()%>"><%=film.getTitle()%></a></p>
+                <p>Director: <%=film.getDirector()%></p>
+                <p>Nota media: <%=film.getAverageNote()%></p>
+            </div><%
         }
     }else{
         %><p>Aún no se añadieron películas</p><%
@@ -25,7 +30,12 @@
     <span class="title">Peliculas mejor valoradas</span>
     <%if(lastFilms.size() != 0){
         for (Film film : bestFilms) {%>
-            <p><%=film.getTitle()%></p><%
+        <div class="film">
+            <img src="<%=film.getImageRoute()%>"/>
+            <p><a href="/LoveFilmsWeb/manageFilm?idFilm=<%=film.getIdFilm()%>"><%=film.getTitle()%></a></p>
+            <p>Director: <%=film.getDirector()%></p>
+            <p>Nota media: <%=film.getAverageNote()%></p>
+        </div><%
         }
     }else{
         %><p>Aún no se añadieron películas</p><%

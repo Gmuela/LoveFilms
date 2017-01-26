@@ -20,13 +20,13 @@ public class FilmDAO implements FilmDAOLocal,FilmDAORemote {
 
     @Override
     public void update(Film film) {
-        manager.persist(film);
         manager.merge(film);
     }
 
     @Override
     public Film select(Integer id) {
-        return manager.find(Film.class, id);
+        Film film = manager.find(Film.class, id);
+        return film;
     }
 
     @Override
@@ -40,6 +40,14 @@ public class FilmDAO implements FilmDAOLocal,FilmDAORemote {
         Query query = manager.createQuery(toQuery);
         name = "%"+name+"%";
         query.setParameter("name", name);
+        return (ArrayList<Film>) query.getResultList();
+    }
+
+    @Override
+    public ArrayList<Film> selectAllFilms(){
+        String toQuery = "SELECT films from Film films";
+        Query query = manager.createQuery(toQuery);
+        query.setMaxResults(5);
         return (ArrayList<Film>) query.getResultList();
     }
 
