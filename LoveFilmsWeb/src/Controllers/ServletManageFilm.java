@@ -31,13 +31,14 @@ public class ServletManageFilm extends HttpServlet {
         String releaseDateParameter = req.getParameter("releaseDate");
         String averageNoteParameter = req.getParameter("averageNote");
         String summary = req.getParameter("summary");
+        boolean isRemoved = false;
 
         String[] split = actorsParameter.split(",");
         ArrayList<String> actors = new ArrayList<String>(Arrays.asList(split));
         LocalDate releaseDate = LocalDate.parse(releaseDateParameter);
         Double averageNote = Double.parseDouble(averageNoteParameter);
 
-        Film film = new Film(title, director, actors, imageRoute, releaseDate, averageNote,summary);
+        Film film = new Film(title, director, actors, imageRoute, releaseDate, averageNote,summary, isRemoved);
 
         boolean created = filmBusiness.createNewFilm(film);
 

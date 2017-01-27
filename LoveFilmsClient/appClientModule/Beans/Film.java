@@ -1,5 +1,7 @@
 package Beans;
 
+import javafx.beans.DefaultProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -20,8 +22,9 @@ public class Film implements Serializable{
     private Double averageNote;
     @Lob
     private String summary;
+    private boolean isRemoved;
 
-    public Film(String title, String director, ArrayList<String> actors, String imageRoute, LocalDate releaseDate, Double averageNote, String summary) {
+    public Film(String title, String director, ArrayList<String> actors, String imageRoute, LocalDate releaseDate, Double averageNote, String summary, boolean isRemoved) {
         this.title = title;
         this.imageRoute = imageRoute;
         this.director = director;
@@ -29,6 +32,7 @@ public class Film implements Serializable{
         this.releaseDate = releaseDate;
         this.averageNote = averageNote;
         this.summary = summary;
+        this.isRemoved = isRemoved;
     }
 
     public Film() {
@@ -97,5 +101,13 @@ public class Film implements Serializable{
 
     public void setImageRoute(String imageRoute) {
         this.imageRoute = imageRoute;
+    }
+
+    public boolean isRemoved() {
+        return isRemoved;
+    }
+
+    public void setRemoved(boolean removed) {
+        isRemoved = removed;
     }
 }

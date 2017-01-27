@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>LoveFilms</title>
     <link rel="stylesheet" href="../Resources/CSS/filmDetailsStyle.css" type="text/css">
     <% Film film = (Film) session.getAttribute("filmDetails");%>

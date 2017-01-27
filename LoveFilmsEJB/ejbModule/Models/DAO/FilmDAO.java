@@ -25,14 +25,13 @@ public class FilmDAO implements FilmDAOLocal,FilmDAORemote {
 
     @Override
     public Film select(Integer id) {
-        Film film = manager.find(Film.class, id);
-        return film;
+        return manager.find(Film.class, id);
     }
 
     @Override
     public void delete(Film film) {
-        Film filmToDelete = manager.find(Film.class, film.getIdFilm());
-        manager.remove(filmToDelete);
+        film.setRemoved(true);
+        manager.merge(film);
     }
 
     @Override
